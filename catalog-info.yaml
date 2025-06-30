@@ -19,6 +19,7 @@ spec:
   dependsOn:
     - component:default/service-flask
     - component:default/integration-process
+    - component:default/integrationaccountsmovements
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Component
