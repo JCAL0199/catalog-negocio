@@ -1,0 +1,47 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: dispersion-ordinaria-imss
+  description: Dispersión Ordinaria IMSS
+  annotations:
+    backstage.io/relationships: |
+      - type: childOf
+        target: component:default/service-flask
+        label: "Pertenece a"
+      - type: dependsOn
+        target: component:default/integration-process
+        label: "Usa servicios de"
+spec:
+  type: negocio
+  lifecycle: experimental
+  owner: group:default/developers
+  dependsOn:
+    - component:default/service-flask
+    - component:default/integration-process
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: carga-archivo
+  description: Dispersión Ordinaria IMSS/Carga Archivo
+  tags:
+    - sub-etapa
+spec:
+  type: subetapa
+  lifecycle: experimental
+  owner: group:default/developers
+  subcomponentOf: component:default/dispersion-ordinaria-imss
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: idc
+  description: Dispersión Ordinaria IMSS/IDC
+  tags:
+    - sub-etapa
+spec:
+  type: subetapa
+  lifecycle: experimental
+  owner: group:default/developers
+  subcomponentOf: component:default/dispersion-ordinaria-imss
